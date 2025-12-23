@@ -2,7 +2,7 @@
 
 An AI-powered quiz generation web application built with Angular and Google's Genkit AI framework. Flash Quiz uses Google's Vertex AI (Gemini 2.5 Flash model) to generate customizable quizzes on any topic with varying difficulty levels.
 
-🔗 **[Live Demo](https://flash-quiz-452537186612.us-central1.run.app/)** | 💻 **[Source Code](https://github.com/yourusername/flash-quiz)**
+🔗 **[Live Demo](https://flash-quiz-452537186612.us-central1.run.app/)** | 💻 **[Source Code](https://github.com/Radu-Branzei/flash-quiz)**
 
 ## 📋 Table of Contents
 
