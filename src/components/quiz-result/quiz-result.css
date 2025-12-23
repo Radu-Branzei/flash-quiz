@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.quiz-result {
+  width: 100%;
+  max-width: 64rem;
+  height: 36rem;
+  margin: 0 auto;
+  padding: 2.5rem 2.5rem 3rem;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.result-body {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2rem;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+@media (max-width: 1024px) {
+  .quiz-result {
+    max-width: 90%;
+    height: auto;
+    max-height: 90vh;
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .progress-wrapper {
+    width: 10rem;
+    height: 10rem;
+    margin: 0 auto 1.25rem;
+  }
+
+  .percentage-text {
+    font-size: 2rem;
+  }
+
+  .score-line {
+    font-size: 1.25rem;
+  }
+
+  .feedback {
+    font-size: 1rem;
+  }
+
+  .play-again-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .list-title {
+    font-size: 1.125rem;
+  }
+
+  .q-text {
+    font-size: 0.95rem;
+  }
+
+  .user-answer,
+  .correct-answer {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .quiz-result {
+    max-width: 90%;
+    height: auto;
+    max-height: 95vh;
+    overflow-y: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .result-body {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .summary {
+    order: 1;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .summary::after {
+    display: none;
+  }
+
+  .progress-wrapper {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto 1rem;
+  }
+
+  .percentage-text {
+    font-size: 1.5rem;
+  }
+
+  .score-info {
+    margin-bottom: 1rem;
+  }
+
+  .score-line {
+    font-size: 1.125rem;
+  }
+
+  .feedback {
+    font-size: 1rem;
+  }
+
+  .play-again-btn {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .question-list {
+    order: 2;
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+    height: auto;
+    overflow: visible;
+  }
+
+  .list-title {
+    font-size: 1.125rem;
+  }
+
+  .q-text {
+    font-size: 0.95rem;
+  }
+
+  .user-answer,
+  .correct-answer {
+    font-size: 0.875rem;
+  }
+}
+
+.summary {
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 0;
+}
+
+@media (min-width: 641px) {
+  .summary {
+    padding-right: 1.25rem;
+  }
+}
+
+.summary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -1rem;
+  width: 1px;
+  background-color: rgba(148, 163, 184, 0.12);
+  border-radius: 1px;
+}
+
+.progress-wrapper {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progress-ring {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-bg {
+  stroke: #334155;
+  stroke-width: 8;
+  fill: transparent;
+}
+
+.progress-value {
+  stroke: #6366f1;
+  stroke-width: 8;
+  fill: transparent;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+  transition: stroke-dashoffset 1s ease-out;
+}
+
+.percentage-text {
+  position: absolute;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.score-info {
+  margin-bottom: 1.5rem;
+}
+
+.score-line {
+  font-size: 1.5rem;
+  color: #cbd5f5;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.highlight {
+  font-weight: 700;
+  color: #818cf8;
+}
+
+.feedback {
+  margin-top: 0.5rem;
+  font-size: 1.125rem;
+  color: #94a3b8;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.play-again-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: #4f46e5;
+  color: #ffffff;
+  font-size: 1.125rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: 'Cabin', sans-serif;
+}
+
+.play-again-btn:hover {
+  background-color: #4338ca;
+}
+
+.play-again-btn:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.18);
+  outline-offset: 2px;
+}
+
+.question-list {
+  padding: 1rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0.75rem;
+  height: 100%;
+  overflow-y: auto;
+  text-align: left;
+  padding-left: 1.5rem;
+  min-height: 0;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.question-list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.list-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.question-item {
+  border-bottom: 1px solid rgba(148, 163, 184, 0.06);
+  padding: 0.75rem 0;
+}
+
+.question-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.q-text {
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.user-answer,
+.correct-answer {
+  display: block;
+  font-size: 0.95rem;
+  color: #94a3b8;
+  margin: 0.25rem 0;
+}
+
+.user-answer.correct {
+  color: #86efac;
+  font-weight: 700;
+}
+
+.user-answer.wrong {
+  color: #fca5a5;
+  font-weight: 700;
+}
+
+.correct-answer {
+  color: #93c5fd;
+  font-weight: 600;
+}

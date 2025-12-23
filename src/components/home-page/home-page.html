@@ -1,0 +1,114 @@
+<div class="home-container">
+  <header class="header">
+    <h1>
+      Flash Quiz
+      <span class="flash-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M13 2L3 14h7l-1 8 10-12h-7z" />
+        </svg>
+      </span>
+    </h1>
+  </header>
+
+  <main class="main-content">
+    <section class="left-section">
+      <div class="description">
+        <h2>Challenge Yourself on Any Topic</h2>
+        <p>
+          Generate quizzes instantly on any subject. Customize difficulty levels and question
+          counts, then get instant results with detailed feedback.
+        </p>
+        <p>
+          Note that while this tool can help you learn new things, it is recommended to always
+          verify critical information with trusted sources.
+        </p>
+      </div>
+      <button (click)="goToQuizConfig()" class="btn-start">Create Your Quiz</button>
+    </section>
+
+    <section class="right-section">
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>
+            AI-Powered
+            <lucide-icon name="brain-circuit"></lucide-icon>
+          </h3>
+          <div class="feature-summary">
+            <p>Using Google's Genkit AI, quizzes are generated on any given topic.</p>
+          </div>
+          <div class="feature-details">
+            <p>
+              This application uses Google's Genkit AI framework to generate quiz questions based on
+              your chosen topic. The AI model processes your topic input and creates multiple-choice
+              questions with varying difficulty levels.
+            </p>
+            <p>
+              <span class="disclaimer-label">DISCLAIMER:</span> Note that AI-generated content is
+              not always accurate and may contain errors or inconsistencies that should be verified
+              independently.
+            </p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <h3>
+            Browser-Based
+            <lucide-icon name="globe"></lucide-icon>
+          </h3>
+          <div class="feature-summary">
+            <p>Runs entirely in your web browser with no installation required.</p>
+          </div>
+          <div class="feature-details">
+            <p>
+              This application is a web-based tool that operates directly in your browser without
+              requiring any downloads or installations. It functions across all modern browsers and
+              devices including desktop computers, tablets, and smartphones.
+            </p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <h3>
+            Customizable
+            <lucide-icon name="sliders-horizontal"></lucide-icon>
+          </h3>
+          <div class="feature-summary">
+            <p>Choose your difficulty level and number of questions.</p>
+          </div>
+          <div class="feature-details">
+            <p>
+              The application allows you to configure quiz parameters before generation. You can
+              select from three difficulty levels (easy, medium, hard) and specify the number of
+              questions (1-20).
+            </p>
+            <p>
+              <span class="disclaimer-label">NOTE:</span> Topics should be clearly defined and
+              meaningful. Vague, undefined, or nonsensical input (e.g., gibberish) will not produce
+              useful or accurate quiz questions.
+            </p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <h3>
+            Quick Results
+            <lucide-icon name="clock-arrow-up"></lucide-icon>
+          </h3>
+          <div class="feature-summary">
+            <p>Quizzes are generated in seconds, regardless of topic or difficulty.</p>
+          </div>
+          <div class="feature-details">
+            <p>
+              The Genkit AI framework processes quiz requests asynchronously and returns results
+              within seconds. Generation time remains consistent across different topics and
+              question counts, typically completing within 5-10 seconds regardless of complexity.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

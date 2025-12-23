@@ -1,0 +1,25 @@
+<main class="quiz-page-wrapper">
+  <div class="quiz-page-container">
+    @switch (gameState()) { @case('config') {
+    <div>
+      @if(apiError()) {
+      <div class="api-error" role="alert">
+        <strong>Error:</strong>
+        <span class="error-text">{{ apiError() }}</span>
+      </div>
+      }
+      <app-quiz-config (configured)="onQuizConfigured($event)"></app-quiz-config>
+    </div>
+    } @case('loading') {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <h2>Generating Your Quiz...</h2>
+      <p>This may take a moment.</p>
+    </div>
+    } @case('playing') {
+    <app-quiz [questions]="quizQuestions()" (quizFinished)="onQuizFinished($event)"></app-quiz>
+    } @case('results') { @if(quizResult(); as result) {
+    <app-quiz-result [result]="result" (playAgain)="onPlayAgain()"></app-quiz-result>
+    } } }
+  </div>
+</main>

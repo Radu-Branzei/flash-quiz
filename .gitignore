@@ -41,3 +41,25 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Environment variables (contains secrets)
+.env
+.env.local
+.env.*.local
+
+# Google Cloud credentials (NEVER commit these!)
+service-account.json
+*-service-account.json
+*.json.key
+credentials.json
+
+# Build output
+dist/
+.angular/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

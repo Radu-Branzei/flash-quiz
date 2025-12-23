@@ -1,0 +1,54 @@
+<div class="quiz-result">
+  <h1 class="title">Quiz Complete!</h1>
+
+  <div class="result-body">
+    <div class="summary">
+      <div class="progress-wrapper">
+        <svg class="progress-ring" viewBox="0 0 100 100">
+          <circle class="progress-bg" r="45" cx="50" cy="50" />
+
+          <circle
+            class="progress-value"
+            r="45"
+            cx="50"
+            cy="50"
+            [attr.stroke-dasharray]="2 * 3.14159 * 45"
+            [attr.stroke-dashoffset]="2 * 3.14159 * 45 * (1 - percentage() / 100)"
+          />
+        </svg>
+
+        <span class="percentage-text">{{ percentage() }}%</span>
+      </div>
+
+      <div class="score-info">
+        <p class="score-line">
+          You scored
+          <span class="highlight">{{ result().score }}</span>
+          out of
+          <span class="highlight">{{ result().totalQuestions }}</span>
+        </p>
+        <p class="feedback">{{ feedbackMessage() }}</p>
+      </div>
+
+      <button class="play-again-btn" (click)="onPlayAgain()">Play Again</button>
+    </div>
+
+    <div class="question-list">
+      @for (item of result().details; track item) {
+      <div class="question-item">
+        <p class="q-text">{{ item.question }}</p>
+
+        <p
+          class="user-answer"
+          [class.correct]="item.providedAnswer === item.correctAnswer"
+          [class.wrong]="item.providedAnswer !== item.correctAnswer && item.providedAnswer !== null"
+        >
+          Your answer: {{ item.providedAnswer ?? '—' }}
+        </p>
+
+        <p class="correct-answer">Correct: {{ item.correctAnswer }}</p>
+      </div>
+      }
+    </div>
+  </div>
+</div>

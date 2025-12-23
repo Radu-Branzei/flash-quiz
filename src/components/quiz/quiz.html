@@ -1,0 +1,54 @@
+<div class="quiz-container">
+  @if (currentQuestion()) {
+
+  <div class="progress">
+    <div class="progress-header">
+      <span> Question {{ currentIndex() + 1 }} of {{ questions().length }} </span>
+      <span>Score: {{ score() }}</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-bar-fill" [style.width.%]="progress()"></div>
+    </div>
+  </div>
+
+  <div class="question">
+    <h2>{{ currentQuestion().question }}</h2>
+  </div>
+
+  <div class="options">
+    @for (option of currentQuestion().options; track option) {
+    <button
+      class="option-button"
+      [class.correct]="answered() && option === currentQuestion().correctAnswer"
+      [class.wrong]="
+        answered() && option === selectedAnswer() && option !== currentQuestion().correctAnswer
+      "
+      [class.disabled]="answered()"
+      [class.selected]="!answered() && selectedAnswer() === option"
+      (click)="selectAnswer(option)"
+      [disabled]="answered()"
+    >
+      {{ option }}
+    </button>
+    }
+  </div>
+
+  <div class="actions">
+    <button class="hint-toggle" (click)="toggleHint()">
+      @if (hintVisible()) { Hide } @else { Show } Hint
+    </button>
+
+    <button
+      class="submit-button"
+      (click)="submitAnswer()"
+      [disabled]="selectedAnswer() === null || answered()"
+    >
+      Submit Answer
+    </button>
+  </div>
+
+  @if (hintVisible()) {
+  <div class="hint-box"><strong>Hint:</strong> {{ currentQuestion().hint }}</div>
+  } }
+</div>

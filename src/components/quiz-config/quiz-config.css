@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Share+Tech&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+.quiz-config-container {
+  --fz-base: 16px;
+  --space: 1rem;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  font-size: var(--fz-base);
+  line-height: 1.4;
+  max-height: 640px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  border-radius: 1.25rem;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.flash-icon {
+  display: inline-flex;
+  color: #fbbf24;
+  line-height: 0;
+}
+
+.flash-icon svg {
+  width: 1.2em;
+  height: 1.2em;
+  display: block;
+}
+
+.header p {
+  margin-top: 0.4rem;
+  color: #94a3b8;
+  font-size: 1rem;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5f5;
+  margin-bottom: 0.5rem;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.form-group input[type='text'] {
+  padding: 1rem 1.25rem;
+  background-color: #334155;
+  border: 1px solid #475569;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  font-size: 1.05rem;
+}
+
+.form-group input::placeholder {
+  color: #94a3b8;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.4);
+}
+
+.difficulty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.difficulty-grid button {
+  padding: 0.9rem;
+  border-radius: 0.5rem;
+  background-color: #334155;
+  color: #cbd5f5;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  font-family: 'Cabin', sans-serif;
+}
+
+.difficulty-grid button:hover {
+  background-color: #475569;
+}
+
+.difficulty-grid button.active {
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+}
+
+.difficulty-grid button:nth-child(1).active {
+  background-color: #10b981;
+  box-shadow: 0 6px 14px rgba(16, 185, 129, 0.16);
+}
+
+.difficulty-grid button:nth-child(2).active {
+  background-color: #f59e0b;
+  box-shadow: 0 6px 14px rgba(245, 158, 11, 0.16);
+}
+
+.difficulty-grid button:nth-child(3).active {
+  background-color: #ef4444;
+  box-shadow: 0 6px 14px rgba(239, 68, 68, 0.16);
+}
+
+.difficulty-grid button.active:hover {
+  transform: none;
+}
+
+.form-group input[type='range'] {
+  margin-top: 0.5rem;
+  accent-color: #6366f1;
+}
+
+.sub-label {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #cbd5f5;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  display: block;
+  font-family: 'Share Tech', sans-serif;
+}
+
+.topic-pills {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 0.25rem;
+}
+
+.topic-pills .pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 0.95rem;
+  border-radius: 9999px;
+  background-color: #334155;
+  color: #cbd5f5;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+  flex: 0 0 auto;
+  font-size: 1rem;
+  line-height: 1;
+  font-family: 'Cabin', sans-serif;
+}
+
+.topic-pills .pill:hover {
+  background-color: #475569;
+}
+
+.topic-pills .pill .pill-icon {
+  display: inline-flex;
+  width: 1.4rem;
+  height: 1.4rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.topic-pills .pill svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.pill-icon svg,
+.pill-icon svg * {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.pill-maths .pill-icon {
+  color: #7c3aed;
+}
+.pill-sports .pill-icon {
+  color: #ffffff;
+}
+.pill-science .pill-icon {
+  color: #06b6d4;
+}
+.pill-geography .pill-icon {
+  color: #3b82f6;
+}
+
+.topic-pills .pill svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.topic-pills .pill svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  display: block;
+  flex-shrink: 0;
+}
+
+.topic-pills .pill.active {
+  background-color: #4b49b8;
+  color: #ffffff;
+  box-shadow: 0 6px 14px rgba(75, 73, 184, 0.22);
+}
+
+.topic-pills .pill.active:hover {
+  background-color: #4b49b8;
+  transform: none;
+}
+
+.highlight {
+  color: #818cf8;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.generate-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  padding: 1rem 1.1rem;
+  min-width: 200px;
+  width: fit-content;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #4b49b8;
+  border: none;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.12s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(75, 73, 184, 0.22);
+  font-family: 'Cabin', sans-serif;
+}
+
+.generate-button:hover:not(:disabled) {
+  background-color: #463e9f;
+  transform: none;
+  box-shadow: 0 10px 24px rgba(75, 73, 184, 0.18);
+}
+
+.generate-button:disabled {
+  background-color: #475569;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.9;
+}
+
+@media (min-width: 640px) {
+  .topic-pills {
+    overflow-x: visible;
+    justify-content: space-between;
+  }
+
+  .topic-pills .pill {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 640px) {
+  .quiz-config-container {
+    max-width: 90%;
+    padding: 1.5rem;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .topic-pills {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    overflow-x: visible;
+  }
+
+  .topic-pills .pill {
+    flex: none;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,47 @@
+# Dependencies
+node_modules
+npm-debug.log
+
+# Build artifacts
+dist
+.angular
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Tests
+*.spec.ts
+**/*.spec.ts
+coverage
+.nyc_output
+
+# Documentation
+README.md
+*.md
+
+# CI/CD
+.github
+.gitlab-ci.yml
+
+# Environment
+.env.local
+.env.*.local
+
+# Editor config
+.editorconfig
+
+# Source files are needed for build, but not in runtime stage
+# They'll be excluded in the multi-stage build

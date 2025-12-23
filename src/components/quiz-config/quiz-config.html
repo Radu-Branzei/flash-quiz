@@ -1,0 +1,110 @@
+<div class="quiz-config-container">
+  <div class="header">
+    <h1>
+      Flash Quiz
+      <span class="flash-icon" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path fill="currentColor" d="M13 2L3 14h7l-1 8 10-12h-7z" />
+        </svg>
+      </span>
+    </h1>
+    <p>Challenge yourself on any topic! Obscurity and specificity won't be an issue.</p>
+  </div>
+
+  <div class="form">
+    <div class="form-group">
+      <label for="topic">Topic</label>
+      <input
+        id="topic"
+        type="text"
+        [value]="topic()"
+        (input)="topic.set($any($event.target).value)"
+        placeholder="e.g., World History, Geography, etc."
+        autocomplete="off"
+      />
+
+      <label class="sub-label">Commonly used topics</label>
+      <div class="topic-pills">
+        <button
+          type="button"
+          class="pill pill-maths"
+          (click)="topic.set('Maths')"
+          [class.active]="topic() === 'Maths'"
+        >
+          <lucide-icon name="calculator" class="pill-icon"></lucide-icon>
+          <span class="pill-text">Maths</span>
+        </button>
+
+        <button
+          type="button"
+          class="pill pill-sports"
+          (click)="topic.set('Sports')"
+          [class.active]="topic() === 'Sports'"
+        >
+          <lucide-icon name="volleyball" class="pill-icon"></lucide-icon>
+          <span class="pill-text">Sports</span>
+        </button>
+
+        <button
+          type="button"
+          class="pill pill-science"
+          (click)="topic.set('Science')"
+          [class.active]="topic() === 'Science'"
+        >
+          <lucide-icon name="test-tube-diagonal" class="pill-icon"></lucide-icon>
+          <span class="pill-text">Science</span>
+        </button>
+
+        <button
+          type="button"
+          class="pill pill-geography"
+          (click)="topic.set('Geography')"
+          [class.active]="topic() === 'Geography'"
+        >
+          <lucide-icon name="earth" class="pill-icon"></lucide-icon>
+          <span class="pill-text">Geography</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Difficulty</label>
+      <div class="difficulty-grid">
+        @for (d of difficulties; track d) {
+        <button type="button" (click)="setDifficulty(d)" [class.active]="difficulty() === d">
+          {{ d.charAt(0).toUpperCase() + d.slice(1) }}
+        </button>
+        }
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="numQuestions">
+        Number of Questions:
+        <span class="highlight">{{ numQuestions() }}</span>
+      </label>
+      <input
+        id="numQuestions"
+        type="range"
+        min="1"
+        max="20"
+        [value]="numQuestions()"
+        (input)="numQuestions.set(+$any($event.target).value)"
+      />
+    </div>
+  </div>
+
+  <button
+    class="generate-button"
+    (click)="generateQuiz()"
+    [disabled]="!topic().trim() || numQuestions() <= 0"
+  >
+    Generate Quiz
+  </button>
+</div>
